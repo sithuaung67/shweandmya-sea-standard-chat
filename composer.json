@@ -1,5 +1,5 @@
 {
-  "name": "seastandard/chatify",
+  "name": "shweandmya/chatify",
   "description": "A package for Laravel PHP Framework to add a complete real-time chat system.",
   "type": "library",
   "keywords": [
@@ -16,11 +16,11 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Thant Htet Aung",
-      "email": "galactuscosmic101@gmail.com"
+      "name": "Si Thu Aung",
+      "email": "sithu237010@gmail.com"
     }
   ],
-  "homepage": "https://github.com/ThantHtetAung101/sea-standard-chatify",
+  "homepage": "https://github.com/sithuaung67/shweandmya-sea-standard-chat",
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
