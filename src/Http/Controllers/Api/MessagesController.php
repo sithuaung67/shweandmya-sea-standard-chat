@@ -27,7 +27,7 @@ class MessagesController extends Controller
      */
     public function pusherAuth(Request $request)
     {
-        if (Auth::guard('api')->check()) {
+        if (Auth::check()) {
             return Chatify::pusherAuth(
                 $request->user('api'),
                 Auth::user(),
