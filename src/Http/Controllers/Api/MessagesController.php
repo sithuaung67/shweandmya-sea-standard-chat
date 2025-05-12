@@ -29,7 +29,7 @@ class MessagesController extends Controller
     {
         if (Auth::guard('sanctum')->check()) {
             return Chatify::pusherAuth(
-                $request->user('api'),
+                $request->user('sanctum'),
                 Auth::guard('sanctum')->user(),
                 $request['channel_name'],
                 $request['socket_id']
