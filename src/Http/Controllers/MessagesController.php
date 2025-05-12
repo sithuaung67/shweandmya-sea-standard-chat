@@ -504,9 +504,11 @@ class MessagesController extends Controller
 
         $url = "https://fcm.googleapis.com/v1/projects/".$project_id."/messages:send";        
         // Fetch user's FCM tokens
-        $fcmTokens = FcmTokenKey::where('customer_id', $customerId)
-        ->orderBy('id', 'desc')
-        ->pluck('fcm_token_key');
+        // $fcmTokens = FcmTokenKey::where('customer_id', $customerId)
+        // ->orderBy('id', 'desc')
+        // ->pluck('fcm_token_key');
+
+        $customer = Customer::where('id', $customerId)->first();
 
         $notifications = [
             'title' => $title,
@@ -521,10 +523,10 @@ class MessagesController extends Controller
             $notifications['image'] = $imgUrl;
         }
 
-        if ($fcmTokens) {
-            foreach ($fcmTokens as $fcmKey) {
+        if ($customer) {
+            // foreach ($fcmTokens as $fcmKey) {
                 $data = [
-                    'token' => $fcmKey,
+                    'token' => $customer->fcm_token_key,
                     'notification' => $notifications,
                     'data'         => $dataPayload,
                     'apns' => [
@@ -554,6 +556,6 @@ class MessagesController extends Controller
 
                 return true;
             }
-        }
+        // }
     }
 }
